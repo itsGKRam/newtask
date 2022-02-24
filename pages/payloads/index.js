@@ -101,41 +101,55 @@ export default function Payloads({ payloadList }) {
                         title={listData?.payload_id}
                     >
                         <Group direction='column' grow>
-                            <Card>
-                                <InputWrapper label='Title'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.payload_id}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Type'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.payload_type}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Orbit'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.orbit}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Nationality'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.nationality}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Manufacturer'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.manufacturer}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
+                            {listData?.payload_id && (
+                                <Card>
+                                    <InputWrapper label='Title'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>{listData?.payload_id}</text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.payload_type && (
+                                <Card>
+                                    <InputWrapper label='Type'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>
+                                                {listData?.payload_type}
+                                            </text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.orbit && (
+                                <Card>
+                                    <InputWrapper label='Orbit'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>{listData?.orbit}</text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.nationality && (
+                                <Card>
+                                    <InputWrapper label='Nationality'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>{listData?.nationality}</text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.manufacturer && (
+                                <Card>
+                                    <InputWrapper label='Manufacturer'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>
+                                                {listData?.manufacturer}
+                                            </text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
                             <Card>
                                 <InputWrapper label='Reused'>
                                     <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
@@ -147,66 +161,246 @@ export default function Payloads({ payloadList }) {
                                     </div>
                                 </InputWrapper>
                             </Card>
-                            <Card>
-                                <InputWrapper label='Mass'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-evenly'>
-                                        <RingProgress
-                                            size={100}
-                                            roundCaps
-                                            thickness={10}
-                                            sections={[
-                                                {
-                                                    value: listData?.payload_mass_kg,
-                                                    color: 'blue',
-                                                },
-                                            ]}
-                                            label={
-                                                <Text
-                                                    weight={700}
-                                                    align='center'
-                                                    size='sm'
-                                                >
-                                                    {listData?.payload_mass_kg}
-                                                </Text>
-                                            }
-                                        />
-                                        <RingProgress
-                                            size={100}
-                                            roundCaps
-                                            thickness={10}
-                                            sections={[
-                                                {
-                                                    value: listData?.payload_mass_lbs,
-                                                    color: 'blue',
-                                                },
-                                            ]}
-                                            label={
-                                                <Text
-                                                    weight={700}
-                                                    align='center'
-                                                    size='sm'
-                                                >
-                                                    {listData?.payload_mass_lbs}
-                                                    %
-                                                </Text>
-                                            }
-                                        />
-                                    </div>
-                                </InputWrapper>
-                            </Card>
+                            {listData?.payload_mass_lbs && (
+                                <Card>
+                                    <InputWrapper label='Mass'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-evenly'>
+                                            <RingProgress
+                                                size={100}
+                                                roundCaps
+                                                thickness={10}
+                                                sections={[
+                                                    {
+                                                        value: listData?.payload_mass_kg,
+                                                        color: 'blue',
+                                                    },
+                                                ]}
+                                                label={
+                                                    <Text
+                                                        weight={700}
+                                                        align='center'
+                                                        size='sm'
+                                                    >
+                                                        {
+                                                            listData?.payload_mass_kg
+                                                        }
+                                                    </Text>
+                                                }
+                                            />
+                                            <RingProgress
+                                                size={100}
+                                                roundCaps
+                                                thickness={10}
+                                                sections={[
+                                                    {
+                                                        value: listData?.payload_mass_lbs,
+                                                        color: 'blue',
+                                                    },
+                                                ]}
+                                                label={
+                                                    <Text
+                                                        weight={700}
+                                                        align='center'
+                                                        size='sm'
+                                                    >
+                                                        {
+                                                            listData?.payload_mass_lbs
+                                                        }
+                                                        %
+                                                    </Text>
+                                                }
+                                            />
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
 
                             <InputWrapper label='Orbit Params'>
                                 <Card>
-                                    <InputWrapper label='APOAPSIS KM'>
-                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                            <text>
-                                                {
-                                                    listData?.orbit_params
-                                                        ?.apoapsis_km
-                                                }
-                                            </text>
-                                        </div>
-                                    </InputWrapper>
+                                    {listData?.orbit_params?.apoapsis_km && (
+                                        <InputWrapper label='apoapsis_km'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.apoapsis_km
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params
+                                        ?.arg_of_pericenter && (
+                                        <InputWrapper label='arg_of_pericenter'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.arg_of_pericenter
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.eccentricity && (
+                                        <InputWrapper label='eccentricity'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.eccentricity
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.periapsis_km && (
+                                        <InputWrapper label='periapsis_km'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.periapsis_km
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params
+                                        ?.reference_system && (
+                                        <InputWrapper label='reference_system'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.reference_system
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.regime && (
+                                        <InputWrapper label='regime'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.regime
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.longitude && (
+                                        <InputWrapper label='longitude'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.longitude
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params
+                                        ?.semi_major_axis_km && (
+                                        <InputWrapper label='semi_major_axis_km'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.semi_major_axis_km
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params
+                                        ?.inclination_deg && (
+                                        <InputWrapper label='inclination_deg'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.inclination_deg
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.period_min && (
+                                        <InputWrapper label='period_min'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.period_min
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.lifespan_years && (
+                                        <InputWrapper label='lifespan_years'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.lifespan_years
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.epoch && (
+                                        <InputWrapper label='epoch'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.epoch
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.mean_motion && (
+                                        <InputWrapper label='mean_motion'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.mean_motion
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.raan && (
+                                        <InputWrapper label='raan'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.raan
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
+                                    {listData?.orbit_params?.mean_anomaly && (
+                                        <InputWrapper label='mean_anomaly'>
+                                            <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                                <text>
+                                                    {
+                                                        listData?.orbit_params
+                                                            ?.mean_anomaly
+                                                    }
+                                                </text>
+                                            </div>
+                                        </InputWrapper>
+                                    )}
                                 </Card>
                             </InputWrapper>
                         </Group>

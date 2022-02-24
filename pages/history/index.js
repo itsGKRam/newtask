@@ -96,49 +96,61 @@ export default function History({ historyList }) {
                         title={listData?.title}
                     >
                         <Group direction='column' grow>
-                            <Card>
-                                <InputWrapper label='Title'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.title}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Details'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end smv-text-right'>
-                                        <text>{listData?.details}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Flight Number'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>{listData?.flight_number}</text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='Unix Time'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>
-                                            {new Date(
-                                                listData?.event_date_unix,
-                                            ).toLocaleString()}
-                                        </text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
-                            <Card>
-                                <InputWrapper label='UTC Time'>
-                                    <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
-                                        <text>
-                                            {new Date(
-                                                listData?.event_date_utc,
-                                            ).toLocaleString()}
-                                        </text>
-                                    </div>
-                                </InputWrapper>
-                            </Card>
+                            {listData?.title && (
+                                <Card>
+                                    <InputWrapper label='Title'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>{listData?.title}</text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.details && (
+                                <Card>
+                                    <InputWrapper label='Details'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end smv-text-right'>
+                                            <text>{listData?.details}</text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.flight_number && (
+                                <Card>
+                                    <InputWrapper label='Flight Number'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>
+                                                {listData?.flight_number}
+                                            </text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.event_date_unix && (
+                                <Card>
+                                    <InputWrapper label='Unix Time'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>
+                                                {new Date(
+                                                    listData?.event_date_unix,
+                                                ).toLocaleString()}
+                                            </text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
+                            {listData?.event_date_utc && (
+                                <Card>
+                                    <InputWrapper label='UTC Time'>
+                                        <div className=' smv-w-full smv-items-center smv-flex smv-justify-end'>
+                                            <text>
+                                                {new Date(
+                                                    listData?.event_date_utc,
+                                                ).toLocaleString()}
+                                            </text>
+                                        </div>
+                                    </InputWrapper>
+                                </Card>
+                            )}
                             <Card>
                                 <InputWrapper label='Learn More'>
                                     <div className=' smv-w-full smv-items-center smv-justify-end smv-flex  smv-gap-5'>
