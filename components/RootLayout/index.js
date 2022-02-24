@@ -133,9 +133,9 @@ export default function RootLayout(props) {
                         <Text className=' smv-font-bold'>SMV SpaceX</Text>
                     </div>
                     <div className=' smv-flex smv-items-center smv-justify-center smv-flex-row smv-gap-2'>
-                        <Text>Light Theme</Text>
-                        <Switch onChange={setColorScheme} />
                         <Text>Dark Theme</Text>
+                        <Switch onChange={setColorScheme} />
+                        <Text>Light Theme</Text>
                     </div>
                 </Header>
             }
